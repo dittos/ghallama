@@ -11,4 +11,6 @@ jobs:
     steps:
       - run: |
           curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve &
+          sleep 5
           ollama run phi3 "Hello, who are you?"
