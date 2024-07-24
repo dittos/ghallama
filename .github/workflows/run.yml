@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
       - run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-          ollama serve &
+          curl -L https://ollama.com/download/ollama-linux-amd64 -o ./ollama
+          chmod +x ./ollama
+          ./ollama serve &
           sleep 5
-          ollama run phi3 "Hello, who are you?"
+          ./ollama run phi3 "Explain the following code: $(cat .github/workflows/run.yml)"
