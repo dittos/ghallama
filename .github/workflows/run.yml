@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          curl -L https://ollama.com/download/ollama-linux-amd64 -o ./ollama
-          chmod +x ./ollama
-          ./ollama serve &
+          curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+          tar -xzvf ollama-linux-amd64.tgz
+          ./bin/ollama serve &
           sleep 5
-          ./ollama run llama3.2:1b "Explain the following code: $(cat .github/workflows/run.yml)"
+          ./bin/ollama run llama3.2:1b "Explain the following code: $(cat .github/workflows/run.yml)"
