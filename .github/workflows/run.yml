@@ -15,4 +15,4 @@ jobs:
           chmod +x ./ollama
           ./ollama serve &
           sleep 5
-          ./ollama run phi3 "Explain the following code: $(cat .github/workflows/run.yml)"
+          ./ollama run llama3.2:1b "Explain the following code: $(cat .github/workflows/run.yml)"
